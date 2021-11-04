@@ -1,5 +1,6 @@
 package com.alura.appium;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import io.appium.java_client.MobileElement;
@@ -16,6 +17,17 @@ public class FeatureCadastro
 
         MobileElement botaoCadastro = (MobileElement)driver.driver.findElementById("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario");
         botaoCadastro.click();
-        assertTrue( true );
+        MobileElement campoNome = (MobileElement)driver.driver.findElementById("br.com.alura.aluraesporte:id/input_nome");
+        MobileElement campoSenha = (MobileElement)driver.driver.findElementById("br.com.alura.aluraesporte:id/input_senha");
+        MobileElement campoConfirmaSenha = (MobileElement)driver.driver.findElementById("br.com.alura.aluraesporte:id/input_confirmar_senha");
+        campoNome.setValue("Bugan");
+        campoSenha.setValue("123");
+        campoConfirmaSenha.setValue("456");
+
+        MobileElement botaoConfirmarCadastro = (MobileElement)driver.driver.findElementById("br.com.alura.aluraesporte:id/cadastro_usuario_botao_cadastrar");
+        botaoConfirmarCadastro.click();
+
+        MobileElement erro = (MobileElement) driver.driver.findElementById("br.com.alura.aluraesporte:id/erro_cadastro");
+        assertEquals("Senhas não conferem", erro.getText());
     }
 }
