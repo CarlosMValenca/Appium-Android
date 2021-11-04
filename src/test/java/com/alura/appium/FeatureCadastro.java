@@ -14,7 +14,7 @@ public class FeatureCadastro
     public void nao_consigo_cadastrar_usuario_com_senhas_que_nao_conferem() throws MalformedURLException {
         AppiumDriverConfig driver = new AppiumDriverConfig();
 
-        MobileElement botaoCadastro = (MobileElement)driver.driver.findElementsById("br.com.alura.aluraesporte:id/login_botao_logar");
+        MobileElement botaoCadastro = (MobileElement)driver.driver.findElementById("br.com.alura.aluraesporte:id/login_botao_cadastrar_usuario");
         botaoCadastro.click();
         assertTrue( true );
     }
